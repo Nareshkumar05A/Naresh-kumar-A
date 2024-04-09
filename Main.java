@@ -1,39 +1,77 @@
-
-package company.com;
 import java.util.*;
 
-public class Main {
-
+class Dose {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter the 5 Subject mark:");
-        System.out.print("Enter the tamil mark:");
-        int T = in.nextInt();
-        System.out.print("Enter the english mark:");
-        int E = in.nextInt();
-        System.out.print("Enter the maths mark:");
-        int M = in.nextInt();
-        System.out.print("Enter the science mark:");
-        int S = in.nextInt();
-        System.out.print("Enter the social science mark:");
-        int SS = in.nextInt();
-        int num = T + E + M + S + SS;
-        System.out.println("Total Mark:"+num);
-        int average = num / 5;
-        System.out.println("Average:" + average);
-
-            if(average>=35&&average<=60) {
-                System.out.println("C");
-            }
-                else if(average>=61&&average<=85) {
-                    System.out.println("B");
-                }
-                    else if (average >= 86 && average <= 100) {
-                        System.out.println("A");
-                    }
-                    else  {
-                        System.out.println("Fail");}
+        Naresh f = new Naresh();
+        f.kumar();
     }
 }
 
+class Main {
 
+    int balance = 10000;
+    void car() {
+        System.out.println("Balance: " + balance);
+    }
+}
+
+class Naresh {
+    public void kumar() {
+        System.out.println("Balance");
+        System.out.println("Deposit");
+        System.out.println("Withdraw");
+        Scanner m = new Scanner(System.in);
+        System.out.println("Enter your choice: ");
+        char n = m.next().charAt(0);
+        if (n == 'D' || n == 'd') {
+            Don g = new Don();
+            g.load();
+        }
+        if (n == 'W' || n == 'w') {
+            Don j = new Don();
+            j.draw();
+        }
+        if (n == 'B' || n == 'b') {
+            Main l = new Main();
+            l.car();
+        }
+    }
+}
+
+class Don extends Main {
+    public void load() {
+        Scanner m = new Scanner(System.in);
+        System.out.println("Enter your deposit amount: ");
+        long dep_amt = m.nextLong();
+        long bal = balance + dep_amt;
+        System.out.println("Total amount: " + bal);
+        Scanner x = new Scanner(System.in);
+        System.out.print("Do you want to use the ATM again? (yes/no): ");
+        char o = x.next().charAt(0);
+        if (o == 'Y' || o == 'y') {
+            Naresh z = new Naresh();
+            z.kumar();
+        }
+    }
+
+
+    public void draw() {
+        Scanner m = new Scanner(System.in);
+        System.out.println("Enter your withdraw amount: ");
+        long with = m.nextLong();
+        if (balance < with) {
+            System.out.println("Your withdraw amount is too big. Showing your balance: " + balance);
+        } else {
+            long baln = balance - with;
+            System.out.println("Total balance amount: " + baln);
+            balance = (int) baln; // Update balance
+        }
+        Scanner x = new Scanner(System.in);
+        System.out.print("Do you want to use the ATM again? (yes/no): ");
+        char o = x.next().charAt(0);
+        if (o == 'Y' || o == 'y') {
+            Naresh z = new Naresh();
+            z.kumar();
+        }
+    }
+}
