@@ -1,77 +1,64 @@
-import java.util.*;
+//import java.sql.SQLOutput;
+import java.util.Random;
 
-class Dose {
+import java.util.Scanner;
+
+
+
+class numbergame{
+
     public static void main(String[] args) {
-        Naresh f = new Naresh();
-        f.kumar();
+        method1();
     }
-}
+    public static void method1()
+    {
+        int ans, guess,chance=0;
+        final int MAX = 100;
+        int n=0;
+        Scanner in = new Scanner(System.in);
+        Random Naresh = new Random();
+        boolean correct = false;
+        ans = Naresh.nextInt(MAX) + 1;
+        while (n<=5) {
+            System.out.println("Guess a number between 1 and 100: ");
+            guess = in.nextInt();
+            n++;
+            if (guess > ans) {
+                System.out.println("your guess is high");
+                chance++;
+            }
+            else if (guess < ans) {
 
-class Main {
+                System.out.println("your guess is low");
+                chance++;
 
-    int balance = 10000;
-    void car() {
-        System.out.println("Balance: " + balance);
-    }
-}
+            }
+            else {
+                System.out.println("Yes, you guessed the number.");
+                correct = true;
+            }
 
-class Naresh {
-    public void kumar() {
-        System.out.println("Balance");
-        System.out.println("Deposit");
-        System.out.println("Withdraw");
-        Scanner m = new Scanner(System.in);
-        System.out.println("Enter your choice: ");
-        char n = m.next().charAt(0);
-        if (n == 'D' || n == 'd') {
-            Don g = new Don();
-            g.load();
         }
-        if (n == 'W' || n == 'w') {
-            Don j = new Don();
-            j.draw();
-        }
-        if (n == 'B' || n == 'b') {
-            Main l = new Main();
-            l.car();
-        }
-    }
-}
-
-class Don extends Main {
-    public void load() {
-        Scanner m = new Scanner(System.in);
-        System.out.println("Enter your deposit amount: ");
-        long dep_amt = m.nextLong();
-        long bal = balance + dep_amt;
-        System.out.println("Total amount: " + bal);
-        Scanner x = new Scanner(System.in);
-        System.out.print("Do you want to use the ATM again? (yes/no): ");
-        char o = x.next().charAt(0);
-        if (o == 'Y' || o == 'y') {
-            Naresh z = new Naresh();
-            z.kumar();
-        }
-    }
-
-
-    public void draw() {
-        Scanner m = new Scanner(System.in);
-        System.out.println("Enter your withdraw amount: ");
-        long with = m.nextLong();
-        if (balance < with) {
-            System.out.println("Your withdraw amount is too big. Showing your balance: " + balance);
-        } else {
-            long baln = balance - with;
-            System.out.println("Total balance amount: " + baln);
-            balance = (int) baln; // Update balance
-        }
-        Scanner x = new Scanner(System.in);
-        System.out.print("Do you want to use the ATM again? (yes/no): ");
-        char o = x.next().charAt(0);
-        if (o == 'Y' || o == 'y') {
-            Naresh z = new Naresh();
-            z.kumar();
-        }
+        if(chance==0)
+            System.out.println("score:"+"100");
+        if(chance==1)
+            System.out.println("score:"+"75");
+        if(chance==2)
+            System.out.println("score:"+"55");
+        if(chance==3)
+            System.out.println("score:"+"35");
+        if(chance==4)
+            System.out.println("score:"+"25");
+        if(chance==5)
+            System.out.println("score:"+"5");
+        else
+            System.out.println("sorry your chance is over");
+        System.out.println("would you like to continue:"+"yes or no");
+        char k=in.next().charAt(0);
+        if(k=='y')
+        {
+            method1();}
+        else
+            System.out.println("thanks for playing");
     }
 }
